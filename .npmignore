@@ -1,0 +1,10 @@
+/.*/
+/example/
+/reports/
+/src/example/
+/src/.*
+/test/
+/circle.yml
+/webpack.config.js
+/nightwatch.json
+/appveyor.yml

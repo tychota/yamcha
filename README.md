@@ -1,6 +1,9 @@
 Yamcha
 ======
 
+[![Circle CI](https://circleci.com/gh/tychota/yamcha.svg?style=svg)](https://circleci.com/gh/tychota/yamcha)
+[![bitHound Overall Score](https://www.bithound.io/github/tychota/yamcha/badges/score.svg)](https://www.bithound.io/github/tychota/yamcha)
+
 An opinionated inline style for react library.
 
 It is based on https://github.com/jgthms/bulma/.

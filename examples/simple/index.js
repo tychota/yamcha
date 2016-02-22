@@ -1,7 +1,9 @@
+import 'babel-polyfill'
 import React from 'react'
-import App from './components/App'
+import { render } from 'react-dom'
+import App from './components/App' // eslint-disable-line no-unused-vars
 
-React.render(
+render(
   <App />,
   document.getElementById('root')
 )

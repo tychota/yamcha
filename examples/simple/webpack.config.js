@@ -2,10 +2,9 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'cheap-module-eval-source-map',
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
+    'webpack-hot-middleware/client',
     './index'
   ],
   output: {
@@ -14,25 +13,37 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
-  resolve: {
-    alias: {
-      'library-boilerplate': path.join(__dirname, '..', '..', 'src')
-    },
-    extensions: ['', '.js']
-  },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
-      exclude: /node_modules/,
-      include: __dirname
-    }, {
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, '..', '..', 'src')
-    }]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        exclude: /node_modules/,
+        include: __dirname
+      }
+    ]
   }
-};
+}
+
+
+// When inside Yamcha repo, prefer src to compiled version.
+// You can safely delete these lines in your project.
+var YamchaSrc = path.join(__dirname, '..', '..', 'src')
+var YamchaNodeModules = path.join(__dirname, '..', '..', 'node_modules')
+var fs = require('fs')
+if (fs.existsSync(YamchaSrc) && fs.existsSync(YamchaNodeModules)) {
+  // Resolve Redux to source
+  module.exports.resolve = { alias: { 'redux': YamchaSrc } }
+  // Our root .babelrc needs this flag for CommonJS output
+  process.env.BABEL_ENV = 'commonjs'
+  // Compile Redux from source
+  module.exports.module.loaders.push({
+    test: /\.jsx?$/,
+    loaders: ['babel'],
+    include: YamchaSrc
+  })
+}

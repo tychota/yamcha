@@ -1,0 +1,4 @@
+const glob = require('glob');
+
+
+glob.sync('**/*-test.js', {realpath: true, cwd: __dirname}).forEach(require)
