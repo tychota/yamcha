@@ -13,4 +13,10 @@ It has CommonJS and UMD builds via Babel and Webpack, ESLint, and Mocha.
 It also has React-friendly examples folder with library code mapped to 
 the sources.
 
-Note that this is an *opinionated* library. IKt is also still alpha.
+Note that this is an *opinionated* library. It is also still alpha.
+
+Inspiration
+-----------
+
+- npm library structure : redux
+- theme gestion : [callemall/material-ui](https://github.com/callemall/material-ui) and [azazdeaz/react-matterkit](https://github.com/azazdeaz/react-matterkit)

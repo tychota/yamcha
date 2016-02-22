@@ -2,32 +2,53 @@ import React, { Component } from 'react'
 import Radium from 'radium'
 
 class Card extends Component {
+  static propTypes = {
+    imgUrl: React.PropTypes.string.isRequired,
+    thumbUrl: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string.isRequired,
+    subtitle: React.PropTypes.string.isRequired,
+    content: React.PropTypes.string.isRequired,
+    footnote: React.PropTypes.string.isRequired
+  };
+
+  static contextTypes = {
+    gokuTheme: React.PropTypes.object
+  };
+
+  static defaultProps = { initialCount: 0 };
+  
+
+  /** @namespace theme.card */
+  /** @namespace theme.media */
+  /** @namespace theme.size */
   render() {
+    const theme = this.getStyle('card')
     return (
-      <div class="card">
-        <figure class="card-image is-4x3">
-          <img src="http://placehold.it/300x225" alt=""/>
+      <div style={ theme.card }>
+        <figure style={ [ theme.card.image, theme.size[this.props.size] ] }>
+          <img src={ this.props.imgUrl } alt=""/>
         </figure>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-32x32">
-                <img src="http://placehold.it/64x64" alt="Image"/>
+        <div style={ theme.card.content }>
+          <div style={ theme.media.base }>
+            <div style={ theme.media.left }>
+              <figure style="image is-32x32">
+                <img src={ this.props.thumbUrl } alt="Image"/>
               </figure>
             </div>
-            <div class="media-content">
-              <p class="title is-5">John Smith</p>
-              <p class="subtitle is-6">@johnsmith</p>
+            <div style={ theme.media.content }>
+              <p style={ [ theme.media.content,  is-5] }>
+                { this.props.title }
+              </p>
+              <p style="subtitle is-6">
+                { this.props.subtitle }
+              </p>
             </div>
           </div>
 
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris.<a href="#">@bulmaio</a>.
-            <a href="#">#css</a>
-            <a href="#">#responsive</a>
+          <div style="content">
+            { this.props.content }
             <br>
-              <small>11:09 PM - 1 Jan 2016</small>
+              <small>{ this.props.footnote }</small>
             </br>
           </div>
         </div>
