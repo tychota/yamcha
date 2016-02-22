@@ -7,7 +7,7 @@ machine:
 test:
   override:
     - $(npm bin)/eslint --debug . --format tap | $(npm bin)/tap-xunit > ${CIRCLE_TEST_REPORTS}/lint.xml
-    - XUNIT_FILE=${CIRCLE_TEST_REPORTS}/test.xml $(npm bin)/mocha --reporter mocha-tap-reporter 
+    - XUNIT_FILE=${CIRCLE_TEST_REPORTS}/test.xml $(npm bin)/mocha --reporter xunit-file
     - $(npm bin)/isparta cover --report text --report lcov --verbose --dir ${CIRCLE_ARTIFACTS}/coverage  --include '**/!(*-test).js' $(npm bin)/_mocha
     #- REPORT_DIR=${CIRCLE_TEST_REPORTS} LOG_DIR=${CIRCLE_ARTIFACTS} npm run test:e2e -s
 
