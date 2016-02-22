@@ -1,7 +1,7 @@
 Yamcha
 ======
 
-[![Circle CI](https://circleci.com/gh/tychota/yamcha.svg?style=svg)](https://img.shields.io/circleci/project/tychota/yamcha.svg)
+[![Circle CI](https://img.shields.io/circleci/project/tychota/yamcha.svg)](https://circleci.com/gh/tychota/yamcha)
 [![codecov.io](https://codecov.io/github/tychota/yamcha/coverage.svg?branch=master)](https://codecov.io/github/tychota/yamcha?branch=master)
 [![bitHound Overall Score](https://www.bithound.io/github/tychota/yamcha/badges/score.svg)](https://www.bithound.io/github/tychota/yamcha)
 
