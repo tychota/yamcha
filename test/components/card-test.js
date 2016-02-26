@@ -1,7 +1,7 @@
 import React from 'react'
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
-import Card from '../../src/components/Card.jsx' // eslint-disable-line no-unused-vars
+import Card from '../../src/components/Card.js' // eslint-disable-line no-unused-vars
 import { it, describe } from 'mocha'
 
 describe('A suite', () => {

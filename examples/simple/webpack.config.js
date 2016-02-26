@@ -37,7 +37,7 @@ var YamchaNodeModules = path.join(__dirname, '..', '..', 'node_modules')
 var fs = require('fs')
 if (fs.existsSync(YamchaSrc) && fs.existsSync(YamchaNodeModules)) {
   // Resolve Redux to source
-  module.exports.resolve = { alias: { 'redux': YamchaSrc } }
+  module.exports.resolve = { alias: { 'yamcha': YamchaSrc } }
   // Our root .babelrc needs this flag for CommonJS output
   process.env.BABEL_ENV = 'commonjs'
   // Compile Redux from source

@@ -1,7 +1,11 @@
-import React, { Component } from 'react'
-import Radium from 'radium'
+"use strict";
 
-class Card extends Component {
+const React = require('react')
+const Radium = require('radium')
+const saiyanize = require('../utils/sayanize')
+
+@saiyanize
+class Card extends React.Component {
   static propTypes = {
     imgUrl: React.PropTypes.string.isRequired,
     thumbUrl: React.PropTypes.string.isRequired,
@@ -16,27 +20,28 @@ class Card extends Component {
   };
 
   static defaultProps = { initialCount: 0 };
-  
+
 
   /** @namespace theme.card */
   /** @namespace theme.media */
   /** @namespace theme.size */
   render() {
-    const theme = this.getStyle('card')
+    const cardTheme = this.getStyle('card')
+    const mediaTheme = this.getStyle('media')
     return (
-      <div style={ theme.card }>
-        <figure style={ [ theme.card.image, theme.size[this.props.size] ] }>
+      <div style={ cardTheme.base }>
+        <figure style={ [ cardTheme.image, cardTheme.size[this.props.size] ] }>
           <img src={ this.props.imgUrl } alt=""/>
         </figure>
-        <div style={ theme.card.content }>
-          <div style={ theme.media.base }>
-            <div style={ theme.media.left }>
+        <div style={ cardTheme.content }>
+          <div style={ cardTheme.base }>
+            <div style={ cardTheme.left }>
               <figure style="image is-32x32">
                 <img src={ this.props.thumbUrl } alt="Image"/>
               </figure>
             </div>
-            <div style={ theme.media.content }>
-              <p style={ [ theme.media.content,  is-5] }>
+            <div style={ mediaTheme.content }>
+              <p style={ [ mediaTheme.content,  is-5] }>
                 { this.props.title }
               </p>
               <p style="subtitle is-6">
@@ -48,7 +53,9 @@ class Card extends Component {
           <div style="content">
             { this.props.content }
             <br>
-              <small>{ this.props.footnote }</small>
+              <small>
+                { this.props.footnote }
+              </small>
             </br>
           </div>
         </div>
@@ -57,4 +64,6 @@ class Card extends Component {
   }
 }
 
-export default Radium(Card)
+
+
+module.exports = Radium(Card)

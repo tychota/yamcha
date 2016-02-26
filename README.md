@@ -5,6 +5,8 @@ Yamcha
 [![codecov.io](https://codecov.io/github/tychota/yamcha/coverage.svg?branch=master)](https://codecov.io/github/tychota/yamcha?branch=master)
 [![bitHound Overall Score](https://www.bithound.io/github/tychota/yamcha/badges/score.svg)](https://www.bithound.io/github/tychota/yamcha)
 
+[![Yamcha](https://cdn.rawgit.com/tychota/yamcha/master/yamcha.svg)](https://github.com/tychota/yamcha)
+
 An opinionated inline style for react library.
 
 It is based on https://github.com/jgthms/bulma/.

@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
-import { add } from 'library-boilerplate'
+const React = require('react')
+const Card = require('../../../src/components/Card')
 
-export default class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <p>
-        2 + 2 = {add(2, 2)}
-      </p>
+      <div>
+        <Card/>
+      </div>
     )
   }
 }
+
+module.exports = App;
