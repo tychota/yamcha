@@ -18,5 +18,7 @@ Note that this is an *opinionated* library. It is also still alpha.
 Inspiration
 -----------
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tychota/yamcha.svg)](https://greenkeeper.io/)
+
 - npm library structure : redux
 - theme gestion : [callemall/material-ui](https://github.com/callemall/material-ui) and [azazdeaz/react-matterkit](https://github.com/azazdeaz/react-matterkit)
